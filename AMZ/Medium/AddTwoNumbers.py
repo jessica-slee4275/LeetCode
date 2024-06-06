@@ -36,7 +36,7 @@ class Solution:
             multi *= 10
             l2 = l2.next
 
-        dummy = ListNode()  
+        dummy = ListNode()  # Initial Pointer: Without the dummy node, the current pointer would have nothing to attach to at the beginning
         current = dummy 
         for num in list(str(l1_sum + l2_sum))[::-1]:
             current.next = ListNode(int(num)) 
