@@ -26,22 +26,21 @@ Constraints:
 """
 class Solution:
     def longestCommonPrefix(self, arr1: List[int], arr2: List[int]) -> int:
-        
+
         def get_prefixes(number):
             str_num = str(number)
             return [str_num[:i] for i in range(1, len(str_num) + 1)]
         
         # Create a set of all prefixes from arr2
-        prefixes = set()
+        prefixes_arr2 = set()
         for num in arr2:
-            prefixes.update(get_prefixes(num))
-        
+            prefixes_arr2.update(get_prefixes(num))
         # Find the maximum length of common prefix between arr1 and arr2
         max_length = 0
         for num in arr1:
-            num_prefixes = get_prefixes(num)
-            for prefix in num_prefixes:
-                if prefix in prefixes:
+            prefixes_arr1 = get_prefixes(num)
+            for prefix in prefixes_arr1:
+                if prefix in prefixes_arr2:
                     max_length = max(max_length, len(prefix))
         
         return max_length
