@@ -22,7 +22,7 @@ nums2.length == n
 """
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
-        return median(sorted(nums1 + nums2))
+        return median(nums1 + nums2)
         # res = sorted(nums1+nums2)
         # len_res = len(res)
         # if len_res == 1: return res[0]/1
