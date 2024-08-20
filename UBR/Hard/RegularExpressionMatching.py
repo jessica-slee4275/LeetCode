@@ -38,9 +38,6 @@ class Solution:
     true
     """
     def isMatch(self, s: str, p: str) -> bool:
-        # if '*' not in p and '.' not in p :
-        #     return s == p
-
         if '**' in p:
             if s in p.replace('*',''):
                 return True
