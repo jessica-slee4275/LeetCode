@@ -30,12 +30,14 @@ class Solution:
 
         if len(pattern) != len(s_split):
             return False
-
+        
         for p, word in zip(pattern, s_split):
+            print(d, p, word, d.values())
             if p in d and d[p] != word:
                 return False
             d[p] = word
-
+            if len(set(d.values())) != len(d.values()):
+                return False
         return True
 
         # d = defaultdict()
