@@ -27,20 +27,21 @@ class Solution:
         def dfs(x, y, root):
             w = board[x][y]
             cur = root[w]
-            word = cur.pop('#', False)
-            print(root, x, y, w, word)
+            word = cur.pop('#', False) # set word value or False
             if word:
                 res.append(word)
             board[x][y] = '*' # visited
-
+            # print(root, (x, y), 'w=', w, word, cur)
+            # print(board)
+            # print()
             for dirX, dirY in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
                 curX, curY = x + dirX, y + dirY
                 if 0 <= curX < m and 0 <= curY < n and board[curX][curY] in cur:
                     dfs(curX, curY, cur)
             board[x][y] = w
-            if not cur:
+            # if found, delete that word. just for better performace: 448ms (before 3300ms)
+            if not cur: 
                 root.pop(w)
-            
         trie = {}
         # trie data structure 
         """
@@ -50,10 +51,11 @@ class Solution:
         for word in words:
             cur = trie
             for w in word:
-                cur = cur.setdefault(w, {})
+                cur = cur.setdefault(w, {}) # setdefault: node no exists -> create new node | node exists -> return that node
             cur['#'] = word
+        # print(trie)    
         m, n = len(board), len(board[0])
-        
+
         res = []
 
         for i in range(m):
