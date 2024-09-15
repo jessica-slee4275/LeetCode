@@ -37,19 +37,14 @@ Constraints:
 """
 class Solution:
     def minNumberOperations(self, target: List[int]) -> int:
-        init_arr = [0]*len(target)
-        res = 0
-        while init_arr != target:
-            start = 0
-            end = None
-            chk = 0
-            for i in range(len(init_arr)):
-                if init_arr[i] < target[i]:
-                    init_arr[i] += 1
-                    print(chk, i)
-                    if chk + 1 != i or (chk == 0 and i == 1 and init_arr[i]>1): 
-                        print('no')
-                        res += 1
-                    chk = i
-                    print(init_arr, chk, i)
-        return res
+        # ans = 0
+        # for prev, curr in pairwise(target):
+        #     ans += max(curr-prev, 0)
+        # return ans + target[0]
+        
+        
+        prev_num, steps = 0, 0
+        for val in target:
+            steps += val-prev_num if val > prev_num else 0
+            prev_num = val
+        return steps
