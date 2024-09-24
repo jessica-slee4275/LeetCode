@@ -39,6 +39,8 @@ All the integers in abbr will fit in a 32-bit integer.
 class Solution:
     def validWordAbbreviation(self, word: str, abbr: str) -> bool:
         i, j, m, prev = len(word), len(abbr), 1, None
+        # T(n) = O(n) 
+        # S(n) = O(1) variables
         while i > 0 and j > 0:
             c1, c2 = word[i-1], abbr[j-1]
             if c1 == c2:
