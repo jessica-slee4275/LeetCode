@@ -36,6 +36,8 @@ The number of nodes in the tree is in the range [1, 5*10**4].
 #         self.right = right
 class Solution:
     def longestZigZag(self, root: Optional[TreeNode]) -> int:
+        # T: O(N)
+        # S: O(h) tree height, worst case: O(N)
         self.maxLength = 0
         def dfs(root, steps, direction):
             self.maxLength = max(self.maxLength, steps)
