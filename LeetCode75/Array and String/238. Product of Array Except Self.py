@@ -22,7 +22,8 @@ class Solution:
         res = [1]*n 
         for i in range(1, n):
             res[i] = res[i-1]*nums[i-1]
-            
+        # nums: [1,2,3,4]
+        # res: [1,1,2,6]    
         p = 1
         for i in range(n-1, -1, -1):
             res[i] *= p
