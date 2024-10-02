@@ -18,7 +18,6 @@ Input: rooms = [[1,3],[3,0,1],[2],[0]]
 Output: false
 Explanation: We can not enter room number 2 since the only key that unlocks it is in that room.
  
-
 Constraints:
 n == rooms.length
 2 <= n <= 1000
@@ -29,6 +28,9 @@ All the values of rooms[i] are unique.
 """
 class Solution:
     def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+        # T: O(N+E) N: len of rooms, E: num of connection between rooms
+        # M: O(N)
+
         seen = set()
         stack = [0]
 
